@@ -46,30 +46,7 @@ npm install
    (Настройки → Привязка устройства).
 4. Скопируйте **idInstance** и **apiTokenInstance** из настроек инстанса.
 
-### Шаг 4. Проверка прокси в `vite.config.js`
-
-Запросы идут по относительному пути `/api/waInstance...`.
-Vite проксирует их на сервер GREEN-API, обходя CORS.
-Откройте `vite.config.js` — там должен быть блок `server.proxy`:
-
-```js
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://api.green-api.com',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
-})
-```
-
-Если блока нет — добавьте.
-
-### Шаг 5. Запуск
+### Шаг 4. Запуск
 
 ```bash
 npm run dev
@@ -77,7 +54,7 @@ npm run dev
 
 Приложение откроется на `http://localhost:5173`.
 
-### Шаг 6. Вход
+### Шаг 5. Вход
 
 На экране авторизации введите **idInstance** и **apiTokenInstance**,
 скопированные из кабинета GREEN-API.
